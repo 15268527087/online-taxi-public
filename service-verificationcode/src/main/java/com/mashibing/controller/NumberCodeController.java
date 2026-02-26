@@ -10,12 +10,18 @@ public class NumberCodeController {
     @GetMapping("/numberCode/{size}")
     public String numberCode(@PathVariable("size") int size) {
         System.out.println("size:" + size);
+        double mathRandow = (Math.random()*9+1)*(Math.pow(10,size-1));
+        int resultInt= (int)mathRandow;
         JSONObject result = new JSONObject();
         result.put("code", 1);
         result.put("message", "success");
         JSONObject data = new JSONObject();
-        data.put("numberCode", 1234);
+        data.put("numberCode", resultInt);
         result.put("data", data);
         return result.toString();
     }
+//    public static void main(String[] args) {
+//        System.out.println("hello world");
+//        double number = (Math.random()*9+1)*(Math.pow(10,5));
+//    }
 }
