@@ -13,13 +13,13 @@ public class NumberCodeController {
     public ResponseResult numberCode(@PathVariable("size") int size) {
         System.out.println("size:" + size);
         //生成验证码
-        double mathRandow = (Math.random()*9+1)*(Math.pow(10,size-1));
-        int resultInt= (int)mathRandow;
-
+        double mathRandow = (Math.random() * 9 + 1) * (Math.pow(10, size - 1));
+        int resultInt = (int) mathRandow;
+        System.out.println("generator src code:" + resultInt);
         //定义返回值
         NumberCodeResponse response = new NumberCodeResponse();
         response.setNumberCode(resultInt);
-        return ResponseResult.success( response);
+        return ResponseResult.success(response);
     }
 //    public static void main(String[] args) {
 //        System.out.println("hello world");
